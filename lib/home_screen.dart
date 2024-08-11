@@ -9,13 +9,56 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Greeting App'),
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Hello, World!'),
-            SizedBox(height: 30,),
+            const Text(
+              'Hello, World!',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'Welcome to Flutter!',
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Image.network(
+              'https://cdn.iconscout.com/icon/free/png-512/free-flutter-2038877-1720090.png?f=webp&w=256',
+              width: 150,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 30,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                ),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Button Pressed!'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                },
+                child: const Text('Press Me'),
+              ),
+            ),
           ],
         ),
       ),
